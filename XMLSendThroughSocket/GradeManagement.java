@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GradeManagement {
 	// save a student to student table
-	public static void saveStudent(Student student) {
+	public static boolean saveStudent(Student student) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/students", "root",
@@ -20,10 +20,12 @@ public class GradeManagement {
 			int signal = stmt.executeUpdate("INSERT INTO student values(" + student.getId() + ",'" + student.getName()
 					+ "'," + student.getGrade() + ")");
 			System.out.println(signal);
+			return true;
 
 			// version 2: prepareStatement
 		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
+			return false;
 		}
 	}
 

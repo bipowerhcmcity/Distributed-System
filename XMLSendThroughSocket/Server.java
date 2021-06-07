@@ -28,13 +28,18 @@ public class Server {
 			// send to client
 			DataOutputStream dos = new DataOutputStream(sock.getOutputStream());
 			
+			boolean SAVING_SUCESS = true;
 			while(true) {
 				try {
 					String dataFromClient = dis.readUTF();
 					
 					Document doc = Doc2Object.convertXmlString2Document(dataFromClient);
 					Student user = Doc2Object.convertDoc2User(doc);
-//					GradeManagement.saveStudent(user);
+					if(GradeManagement.saveStudent(user) != SAVING_SUCESS) {
+						System.out.println("Unable to import this student: "+user.toString());
+						continue;
+					};
+					
 				}catch (IOException ioe){
 					break;
 				}
@@ -45,7 +50,7 @@ public class Server {
 			}
 
 			
-			GradeManagement.getStudentById(14321);
+//			GradeManagement.getStudentById(14321);
 
 			
 			// close

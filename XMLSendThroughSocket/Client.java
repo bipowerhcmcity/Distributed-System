@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -79,8 +80,12 @@ public class Client {
 			// receive data from server
 			DataInputStream dis = new DataInputStream(sock.getInputStream());
 			
+			System.out.println("Input your file name: ");
+			Scanner input = new Scanner(System.in);
+			String fileName = input.nextLine();
+			input.close();
 			
-			File xmlFile = new File("src/XMLSendThroughSocket/student.xml");
+			File xmlFile = new File("src/XMLSendThroughSocket/"+fileName+".xml");
 			
 			
 			ArrayList<Student> students = getStudentsfromXML(xmlFile);

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+	<student>
+		<id>14321</id>
+		<name>Peter</name>
+		<grade>10</grade>
+	</student>
+	
+	<student>
+		<id>15000</id>
+		<name>Michael</name>
+		<grade>9</grade>
+	</student>
+	
+	<student>
+		<id>14323</id>
+		<name>Joseph</name>
+		<grade>8</grade>
+	</student>
+	
+</students>
